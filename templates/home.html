@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <title>Doris</title>
+        <link rel="stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles.css') }}">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <div style="display: flex;">
+            <div class="boite">
+                <h1>DORIS</h1>
+                <h2>Un chatbot implementé avec WolframAlpha et Python!</h2>
+                <div class="imessage">
+                    <p class="from-them">Bonjour, je suis DORIS ! Demande-moi n'importe quoi!</p>
+
+                    {% for d in data %}
+                    <p class="from-me">{{d[0]}}</p>
+                    <p class="from-them">{{d[1]}}</p>
+                    {% endfor %}
+                    
+                </div>
+                <form method="POST">
+                    <input name="question" placeholder="Question..." id="site">
+                    <input hidden="true" type="submit" value="GO!" id="go">
+                </form>
+            </div>
+        </div>
+    </body>
+    <script>
+        var objDiv = document.getElementsByClassName("imessage")[0];
+        objDiv.scrollTop = objDiv.scrollHeight;
+    </script>
+</html>
